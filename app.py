@@ -6,4 +6,6 @@ st.title('Hello world!')
 st.header('header')
 st.text('text2')
 
-st.text_input('Enter your name: ','Gabriel')
+st_name = st.text_input('Enter your name: ','Gabriel')
+
+st.write(f'Hello {st_name}!')
