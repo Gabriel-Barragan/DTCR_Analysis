@@ -1,7 +1,7 @@
 
-import streamlit
+import streamlit as st
 
-streamlit.title('Hello world!')
+st.title(':kissing: Hello world!')
 
 streamlit.header('header')
 streamlit.text('text2')
