@@ -1,7 +1,9 @@
 
 import streamlit as st
 
-st.title(':kissing: Hello world!')
+st.title('Hello world!')
 
-streamlit.header('header')
-streamlit.text('text2')
+st.header('header')
+st.text('text2')
+
+st.text_input('Enter your name: ','Gabriel')
