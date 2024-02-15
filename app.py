@@ -13,6 +13,8 @@ data = pd.DataFrame({
   'Presion atmosferica': [993,994,997,1003,1004,1000,994,942,1006,942,986,983,940,966,982],
   'Velocidad viento': [50,60,45,45,40,55,55,105,40,120,50,70,120,100,55]
 })
+X=data['Presion atmosferica']
+Y=data['Velocidad viento']
 data.description = '''Hurricanes: The data represent the atmospheric
 pressure p (in millibars) and the wind speed w (in knots)
 measured during various tropical systems in the Atlantic
@@ -23,7 +25,7 @@ option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descr
 if option == 'Visualización':
   plt.subplots()
   plt.title('Gráfica de dispersión')
-  plt.scatter(data['Presion atmosferica'], data['Velocidad viento'])
+  plt.scatter(X,Y)
   plt.xlabel('Presión atmosférica')
   plt.ylabel('Velocidad del viento')
   st.pyplot(plt)
