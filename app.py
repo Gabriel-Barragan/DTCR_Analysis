@@ -18,19 +18,15 @@ pressure p (in millibars) and the wind speed w (in knots)
 measured during various tropical systems in the Atlantic
 Ocean'''
 
-def main():
-  option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción','Salir'])
+option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción','Salir'])
 
-  if option == 'Visualización':
-    plt.plot(data['Presion atmosferica'], data['Velocidad viento'])
-    st.pyplot(plt)
-  elif option == 'Resumen':
-    st.write(data.describe())
-  elif option == 'Descripción':
-    st.write(data.description)
-  elif option == 'Salir':
-    st.write('Adiós')
-    st.stop()
-
-if __name__=='main':
-  main()
+if option == 'Visualización':
+  plt.plot(data['Presion atmosferica'], data['Velocidad viento'])
+  st.pyplot(plt)
+elif option == 'Resumen':
+  st.write(data.describe())
+elif option == 'Descripción':
+  st.write(data.description)
+elif option == 'Salir':
+  st.write('Adiós')
+  st.stop()
