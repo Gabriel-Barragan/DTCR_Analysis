@@ -24,7 +24,7 @@ option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descr
 
 if option == 'Visualización':
   plt.subplots()
-  plt.title('Gráfica de dispersión')
+  plt.title='Gráfica de dispersión'
   plt.scatter(X,Y)
   plt.xlabel='Presión atmosférica'
   plt.ylabel='Velocidad del viento'
