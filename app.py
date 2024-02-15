@@ -22,8 +22,10 @@ option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descr
 
 if option == 'Visualización':
   plt.subplots()
-  plt.scatter(data['Presion atmosferica'], data['Velocidad viento'])
   plt.title('Gráfica de dispersión')
+  plt.scatter(data['Presion atmosferica'], data['Velocidad viento'])
+  plt.xlabel('Presión atmosférica')
+  plt.ylabel('Velocidad del viento')
   st.pyplot(plt)
 elif option == 'Resumen':
   st.write(data.describe())
