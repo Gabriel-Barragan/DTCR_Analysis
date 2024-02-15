@@ -32,5 +32,5 @@ def main():
     st.write('Adiós')
     st.stop()
 
-if __name__='main':
+if __name__=='main':
   main()
