@@ -19,7 +19,7 @@ measured during various tropical systems in the Atlantic
 Ocean'''
 
 def main():
-  option = st.radio('Seleccione una opción: ', ('Visualización','Resumen','Descripción','Salir'))
+  option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción','Salir'])
 
   if option == 'Visualización':
     plt.plot(data['Presion atmosferica'], data['Velocidad viento'])
