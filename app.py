@@ -18,7 +18,7 @@ pressure p (in millibars) and the wind speed w (in knots)
 measured during various tropical systems in the Atlantic
 Ocean'''
 
-option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción','Salir'])
+option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción'])
 
 if option == 'Visualización':
   plt.scatter(data['Presion atmosferica'], data['Velocidad viento'])
@@ -27,6 +27,4 @@ elif option == 'Resumen':
   st.write(data.describe())
 elif option == 'Descripción':
   st.write(data.description)
-elif option == 'Salir':
-  st.write('Adiós')
-  st.stop()
+
