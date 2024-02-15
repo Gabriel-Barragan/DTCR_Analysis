@@ -21,6 +21,7 @@ Ocean'''
 option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción'])
 
 if option == 'Visualización':
+  plt.subplots()
   plt.scatter(data['Presion atmosferica'], data['Velocidad viento'])
   plt.title('Gráfica de dispersión')
   plt.xlabel(f'Presión atmosférica (millibars)')
