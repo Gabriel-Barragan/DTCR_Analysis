@@ -21,7 +21,7 @@ Ocean'''
 option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción','Salir'])
 
 if option == 'Visualización':
-  plt.plot(data['Presion atmosferica'], data['Velocidad viento'])
+  plt.scatter(data['Presion atmosferica'], data['Velocidad viento'])
   st.pyplot(plt)
 elif option == 'Resumen':
   st.write(data.describe())
