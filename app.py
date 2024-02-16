@@ -4,6 +4,8 @@ import pandas as pd
 import seaborn as sns
 import streamlit as st
 
+widget_id = (id for id in range(1, 100_00))
+
 st.title('Differentiated Thyroid Cancer Recurrence Analysis')
 
 st.header('Author: Gabriel Barragán')
@@ -92,7 +94,7 @@ elif option == 'EDA':
   if st.checkbox('Age - Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
 
-    binwidth_grouped=st.number_input('Binwidth of histogram:', value=5)
+    binwidth_grouped=st.number_input('Binwidth of histogram:', value=5, key=next(widget_id))
     data_Age_No = data[data["Recurred"] == 'No']['Age']
     data_Age_Yes = data[data["Recurred"] == 'Yes']['Age']
     plt.subplots()
