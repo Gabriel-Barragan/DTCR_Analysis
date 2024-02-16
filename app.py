@@ -105,6 +105,13 @@ elif option == 'EDA':
     plt.xlabel('Age')
     st.pyplot(plt)
 
+    plt.subplots()
+    plt.title('Boxplot of DTCR feature: Age\n Grouped by target feature: Recurred')
+    sns.boxplot(y='Age',x='Recurred', data=data, color=['blue','red'])
+    plt.xlabel('Recurred')
+    plt.ylabel('Age')
+    st.pyplot(plt)
+
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
   
@@ -115,7 +122,7 @@ elif option == 'EDA':
   table = pd.concat([f_abs, f_rel, f_rel_perc], axis=1)
   table.columns = ["Absolute frequency", "Relative frequency", "Relative frequency (%)"]
   st.write(table)
-  if st.checkbox('Visualization'):
+  if st.checkbox('Visualization', key=next(widget_id)):
     plt.subplots()
     sns.countplot(x='Recurred', data=data, palette = "Set1")
     plt.title('Barplot of target feature')
