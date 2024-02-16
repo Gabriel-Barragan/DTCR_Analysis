@@ -35,7 +35,8 @@ elif option == 'Display':
   st.write(data.sample(number_sample_intances))
 
 elif option == 'Features':
-  st.write('Dimension of data set DTCR: %d instances and %d features' %(data.shape[0], data.shape[1]))
+  st.write('# Dimension of data set DTCR:')
+  st.write('%d instances and %d features' %(data.shape[0], data.shape[1]))
   st.write('# Features or variables:')
   data_descriptions = {
         'Age': 'Age of patient (years)',
@@ -59,8 +60,7 @@ elif option == 'Features':
   # https://www.ncbi.nlm.nih.gov/books/NBK65719.15/table/  
   
   for col in data.columns:
-    st.write(f"Feature: {col}")
-    st.write(f"Description: {data_descriptions[col]}")
+    st.write(f"{col}: Description.- {data_descriptions[col]}")
     
   st.write('# Type of features:')
   st.write("Numeric features:", data.select_dtypes('number').columns, "\n", "-"*100)
