@@ -74,10 +74,14 @@ elif option == 'EDA':
   st.write('# Exploratory data analysis (EDA)')
   st.write('# Numeric variable:')
   st.write(data.describe().T)
-  binwidth=5
+  binwidth=st.number_input('Binwidth of histogram:', value=5)
   data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
   plt.title('Histogram of DTCR feature')
   plt.xlabel('Age')
+  st.pyplot(plt)
+
+  sns.boxplot(data['Age'])
+  plt.ylabel('Age')
   st.pyplot(plt)
   
   if st.checkbox('Age - Grouped data'):
