@@ -75,11 +75,11 @@ elif option == 'EDA':
   st.write('# Numeric variable:')
   st.write(data.describe().T)
   binwidth=st.number_input('Binwidth of histogram:', value=5)
-  plt.subplots()
+  fig = plt.subplots()
   data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
   plt.title('Histogram of DTCR feature')
   plt.xlabel('Age')
-  st.pyplot()
+  st.pyplot(fig)
 
   plt.subplots()
   sns.boxplot(data['Age'])
