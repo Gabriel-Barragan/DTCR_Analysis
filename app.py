@@ -75,11 +75,13 @@ elif option == 'EDA':
   st.write('# Numeric variable:')
   st.write(data.describe().T)
   binwidth=st.number_input('Binwidth of histogram:', value=5)
+  plt.subplots()
   data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
   plt.title('Histogram of DTCR feature')
   plt.xlabel('Age')
   st.pyplot()
 
+  plt.subplots()
   sns.boxplot(data['Age'])
   plt.ylabel('Age')
   st.pyplot()
@@ -98,6 +100,7 @@ elif option == 'EDA':
   table.columns = ["Absolute frequency", "Relative frequency", "Relative frequency (%)"]
   st.write(table)
   if st.checkbox('Visualization'):
+    plt.subplots()
     sns.countplot(x='Recurred', data=data, palette = "Set1")
-    plt.title('Recurred')
+    plt.title('Barplot of target feature')
     st.pyplot()
