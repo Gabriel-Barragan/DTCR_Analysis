@@ -74,7 +74,13 @@ elif option == 'EDA':
   st.write('# Exploratory data analysis (EDA)')
   st.write('# Numeric variable:')
   st.write(data.describe().T)
-  if st.checkbox('Grouped data'):
+  binwidth=5
+  data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
+  plt.title('Histogram of DTCR feature')
+  plt.xlabel('Age')
+  st.pyplot(plt)
+  
+  if st.checkbox('Age - Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
 
   st.write('# Categorical features:')
