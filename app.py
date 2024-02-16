@@ -88,6 +88,6 @@ elif option == 'EDA':
   table.columns = ["Absolute frequency", "Relative frequency", "Relative frequency (%)"]
   st.write(table)
   if st.checkbox('Visualization'):
-    sns.countplot(x='Recurred', data=data)
+    sns.countplot(x='Recurred', data=data, palette = "Set1")
     plt.title('Recurred')
     st.pyplot(plt)
