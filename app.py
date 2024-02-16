@@ -36,5 +36,5 @@ elif option == 'Features':
   for col in data.columns:
     st.write(col)
   st.write('Type of features:')
-  st.write("Numeric features:", list(data.select_dtypes('number').columns), "\n", "-"*100)
-  st.write("Categorical features:", list(data.select_dtypes('object').columns))
+  st.write("Numeric features:", data.select_dtypes('number').columns, "\n", "-"*100)
+  st.write("Categorical features:", data.select_dtypes('object').columns)
