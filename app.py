@@ -39,6 +39,6 @@ elif option == 'Features':
   st.write('Type of features:')
   st.write("Numeric features:", data.select_dtypes('number').columns, "\n", "-"*100)
   st.write("Categorical features:", data.select_dtypes('object').columns)
-
+  st.write('Categorical features and factors:')
   for col in data.select_dtypes(include=object):
-    st.write(f"La variable %s tiene %d categoria(s): %s" %(col, data[col].nunique(), data[col].unique()))
+    st.write(f"The feature %s has %d factor(s): %s" %(col, data[col].nunique(), data[col].unique()))
