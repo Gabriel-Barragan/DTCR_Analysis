@@ -124,6 +124,6 @@ elif option == 'EDA':
   st.write(table)
   if st.checkbox('Visualization', key=next(widget_id)):
     plt.subplots()
-    sns.countplot(x='Recurred', data=data, palette = "Set1")
+    sns.countplot(x='Recurred', data=data, palette = ['blue','red'])
     plt.title('Barplot of target feature')
     st.pyplot(plt)
