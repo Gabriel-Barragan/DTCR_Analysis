@@ -32,5 +32,6 @@ elif option == 'Display':
 
 elif option == 'Features':
   st.write('Dimension of data set DTCR: %d instances and %d features' %(data.shape[0], data.shape[1]))
+  st.write('Features or variables:')
   for col in data.columns:
     st.write(col)
