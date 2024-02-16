@@ -59,7 +59,7 @@ elif option == 'Features':
   # https://www.ncbi.nlm.nih.gov/books/NBK65719.15/table/  
   
   for col in data.columns:
-    st.write(f"Feature: {col})
+    st.write(f"Feature: {col}")
     st.write(f"Description: {data_descriptions[col]}")
     
   st.write('# Type of features:')
