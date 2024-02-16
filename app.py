@@ -75,16 +75,16 @@ elif option == 'EDA':
   st.write('# Numeric variable:')
   st.write(data.describe().T)
   binwidth=st.number_input('Binwidth of histogram:', value=5)
-  fig = plt.subplots()
+  plt.subplots()
   data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
   plt.title('Histogram of DTCR feature')
   plt.xlabel('Age')
-  st.pyplot(fig)
+  st.pyplot(plt)
 
   plt.subplots()
   sns.boxplot(data['Age'])
   plt.ylabel('Age')
-  st.pyplot()
+  st.pyplot(plt)
   
   if st.checkbox('Age - Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
@@ -103,4 +103,4 @@ elif option == 'EDA':
     plt.subplots()
     sns.countplot(x='Recurred', data=data, palette = "Set1")
     plt.title('Barplot of target feature')
-    st.pyplot()
+    st.pyplot(plt)
