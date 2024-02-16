@@ -11,7 +11,10 @@ st.subheader('E-mail: gbarragan@yachaytech.edu.ec')
 
 data = pd.read_csv('Datasets/Thyroid_Diff.csv')
 data.description = '''This data set contains 13 clinicopathologic features aiming to predict recurrence of well differentiated thyroid cancer.
-The data set was collected in duration of 15 years and each patient was followed for at least 10 years.'''
+The data set was collected in duration of 15 years and each patient was followed for at least 10 years.
+
+Borzooei,Shiva and Tarokhian,Aidin. (2023). Differentiated Thyroid Cancer Recurrence. UCI Machine Learning Repository. https://doi.org/10.24432/C5632J.
+'''
 
 option = st.sidebar.radio('Select an option: ', ['Description','Display','Features','EDA'])
 
