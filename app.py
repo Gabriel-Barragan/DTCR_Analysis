@@ -18,8 +18,8 @@ if option == 'Description':
   st.write(data.description)
 
 elif option == 'Display':
-  first_intances = st.input_number('Number of first instances:', value=5)
-  st.subheader("First %d instances:", %first_intances)
+  number_first_intances = st.input_number('Number of first instances:', value=5)
+  st.subheader("First {number_first_intances} instances:")
   st.write(data.head(first_intances))
 
   st.subheader("Last 5 instances:")
