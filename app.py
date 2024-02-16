@@ -54,5 +54,5 @@ elif option == 'EDA':
   f_rel = data["Recurred"].value_counts(normalize=True).round(4)
   f_rel_perc = (data["Recurred"].value_counts(normalize=True)*100).round(2).astype(str) + ' %'
   table = pd.concat([f_abs, f_rel, f_rel_perc], axis=1)
-  table.columns = ["freq.abs", "freq.rel", "freq.rel.porc"]
+  table.columns = ["Absolute frequency", "Relative frequency", "Relative frequency (%)"]
   st.write(table)
