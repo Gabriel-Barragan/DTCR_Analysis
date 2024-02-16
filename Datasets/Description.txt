@@ -1,1 +1,2 @@
 Data set of DTCR Analysis
+Borzooei,Shiva and Tarokhian,Aidin. (2023). Differentiated Thyroid Cancer Recurrence. UCI Machine Learning Repository. https://doi.org/10.24432/C5632J.
