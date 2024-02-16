@@ -100,7 +100,7 @@ elif option == 'EDA':
     data_Age_Yes.hist(bins=range(min(data_Age_Yes), max(data_Age_Yes) + binwidth, binwidth), color='red', label='Recurred: Yes', alpha=0.6)
     plt.legend()
     plt.title('Histogram of DTCR feature: Age')
-    plt.subtitle('Grouped by target feature: Recurred')
+    plt.suptitle('Grouped by target feature: Recurred')
     plt.xlabel('Age')
     st.pyplot(plt)
 
