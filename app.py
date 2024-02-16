@@ -95,11 +95,13 @@ elif option == 'EDA':
     binwidth=st.number_input('Binwidth of histogram:', value=5)
     data_Age_No = data[data["Recurred"] == 'No']['Age']
     data_Age_Yes = data[data["Recurred"] == 'Yes']['Age']
+    plt.subplots()
     data_Age_No.hist(bins=range(min(data_Age_No), max(data_Age_No) + binwidth, binwidth), color='blue', label='Recurred: No', alpha=0.6)
     data_Age_Yes.hist(bins=range(min(data_Age_Yes), max(data_Age_Yes) + binwidth, binwidth), color='red', label='Recurred: Yes', alpha=0.6)
     plt.legend()
     plt.title('Histogram of DTCR feature: Age grouped by target feature')
     plt.xlabel('Age')
+    st.pyplot(plt)
 
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
