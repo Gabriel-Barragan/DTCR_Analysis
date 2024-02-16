@@ -107,7 +107,7 @@ elif option == 'EDA':
 
     plt.subplots()
     plt.title('Boxplot of DTCR feature: Age\n Grouped by target feature: Recurred')
-    sns.boxplot(y='Age',x='Recurred', data=data, color=['blue','red'])
+    sns.boxplot(y='Age',x='Recurred', data=data, palette={"left": "blue", "right": "red"})
     plt.xlabel('Recurred')
     plt.ylabel('Age')
     st.pyplot(plt)
