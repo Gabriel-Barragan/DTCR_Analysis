@@ -13,7 +13,7 @@ data = pd.read_csv('Datasets/Thyroid_Diff.csv')
 data.description = '''This data set contains 13 clinicopathologic features aiming to predict recurrence of well differentiated thyroid cancer.
 The data set was collected in duration of 15 years and each patient was followed for at least 10 years.'''
 
-option = st.sidebar.radio('#Select an option: ', ['Description','Display','Features','EDA'])
+option = st.sidebar.radio('Select an option: ', ['Description','Display','Features','EDA'])
 
 if option == 'Description':
   st.write(data.description)
