@@ -55,7 +55,7 @@ elif option == 'Features':
         'M': 'The M (Metastasis) category indicates whether there is distant metastasis, meaning the spread of cancer cells from the thyroid gland to distant organs or tissues outside the neck region (M0, M1)',
         'Stage': 'Stages of thyroid cancer using TNM system (I, II, III, IVA, IVB)',
         'Response': 'Results of diagnostic tests or averall status of thyroid condition (Indeterminate, Excellent, Structural Incomplete, Biochemical Incomplete)',
-        'Recurred': 'Reappearance or return of a thyroid condition after a period of remission or successful treatment (No, Yes)'
+        'Recurred': ' (Target variable) Reappearance or return of a thyroid condition after a period of remission or successful treatment (No, Yes)'
     }
   # https://www.ncbi.nlm.nih.gov/books/NBK65719.15/table/  
   
@@ -83,7 +83,10 @@ elif option == 'EDA':
   st.write('# Target feature:')
   f_abs = data["Recurred"].value_counts()
   f_rel = data["Recurred"].value_counts(normalize=True).round(4)
-  f_rel_perc = (data["Recurred"].value_counts(normalize=True)*100).round(2).astype(str) + ' %'
+  f_rel_perc = (data["Recurred"].value_counts(normalize=True)*100).round(2)
   table = pd.concat([f_abs, f_rel, f_rel_perc], axis=1)
   table.columns = ["Absolute frequency", "Relative frequency", "Relative frequency (%)"]
   st.write(table)
+  if st.checkbox('Visualization'):
+    sns.countplot('Recurred', data=data)
+    plt.title('Recurred')
