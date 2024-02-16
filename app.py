@@ -78,11 +78,11 @@ elif option == 'EDA':
   data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
   plt.title('Histogram of DTCR feature')
   plt.xlabel('Age')
-  st.pyplot(plt)
+  st.pyplot()
 
   sns.boxplot(data['Age'])
   plt.ylabel('Age')
-  st.pyplot(plt)
+  st.pyplot()
   
   if st.checkbox('Age - Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
@@ -100,4 +100,4 @@ elif option == 'EDA':
   if st.checkbox('Visualization'):
     sns.countplot(x='Recurred', data=data, palette = "Set1")
     plt.title('Recurred')
-    st.pyplot(plt)
+    st.pyplot()
