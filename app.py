@@ -74,6 +74,10 @@ elif option == 'Features':
 
 elif option == 'EDA':
   st.write('# Exploratory data analysis (EDA)')
+
+  st.write('# Missing data')
+  st.write(data.isna().sum())
+  
   st.write('# Numeric variable:')
   st.write(data.describe().T)
   
@@ -111,6 +115,15 @@ elif option == 'EDA':
     plt.xlabel('Recurred')
     plt.ylabel('Age')
     st.pyplot(plt)
+
+    if st.checkbox('Age - Outliers', key=next(widget_id)):
+      data_filtered = data.loc[data['Recurred']=='No']
+      Q1 = data_filtered['Age'].quantile(0.25)
+      Q3 = data_filtered['Age'].quantile(0.75)
+      IQR = Q3-Q1
+      upper_bound = data_filtered['Age'] >= (Q3 + 1.5*IQR)
+      # lower_bound = data_filtered['Age'] <= (Q1 - 1.5*IQR)
+      st.write(data_filtered.loc[upper_bound])
 
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
