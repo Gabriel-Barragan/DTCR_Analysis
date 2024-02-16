@@ -20,11 +20,13 @@ if option == 'Description':
 elif option == 'Display':
   number_first_intances = st.number_input('Number of first instances:', value=5)
   st.subheader("First {number_first_intances} instances:")
-  st.write(data.head(first_intances))
+  st.write(data.head(number_first_intances))
 
-  st.subheader("Last 5 instances:")
-  st.write(data.tail())
+  number_last_intances = st.number_input('Number of last instances:', value=5)
+  st.subheader("Last {number_last_intances} instances:")
+  st.write(data.tail(number_last_intances))
 
-  st.subheader("Random sample of instances:")
-  st.write(data.sample(5))
+  number_sample_intances = st.number_input('Number of random sample instances:', value=5)
+  st.subheader("{number_sample_intances} Random sample of instances:")
+  st.write(data.sample(number_sample_intances))
 
