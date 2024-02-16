@@ -41,7 +41,7 @@ elif option == 'Features':
         'Age': 'Age of patient (years)',
         'Gender': 'Gender of patient (F: Feminine, M: Masculine)',
         'Smoking': 'Current smoking status at the time of assessment (No, Yes)',
-        'Hx Smoking': 'Medical history of smoking, that is, person's past smoking habits, regardless of their current smoking status (No, Yes)',
+        'Hx Smoking': 'Medical history of smoking, that is, person\'s past smoking habits, regardless of their current smoking status (No, Yes)',
         'Hx Radiothreapy': 'Medical history of radiotherapy, that is, radiotherapy treatment in the past (No, Yes)',
         'Thyroid Function': 'Activity and hormone production (such as TSH, T3, and T4) of the thyroid gland (Euthyroid, Clinical Hyperthyroidism, Clinical Hypothyroidism, Subclinical Hyperthyroidism, Subclinical Hypothyroidism)',
         'Physical Examination': 'Examination of thyroid gland, assessing the size, shape, and texture, and evaluating for any nodules or abnormalities (Single nodular goiter - left, Multinodular goiter, Single nodular goiter - right, Normal, Diffuse goiter)',
