@@ -2,34 +2,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from sklearn.linear_model import LinearRegression
 import streamlit as st
 
-st.title('Menú cíclico')
+st.title('Differentiated Thyroid Cancer Recurrence Analysis')
 
 st.header('Autor: Gabriel Barragán')
 
-data = pd.DataFrame({
-  'Presion atmosferica': [993,994,997,1003,1004,1000,994,942,1006,942,986,983,940,966,982],
-  'Velocidad viento': [50,60,45,45,40,55,55,105,40,120,50,70,120,100,55]
-})
-X=data['Presion atmosferica']
-Y=data['Velocidad viento']
-data.description = '''Hurricanes: The data represent the atmospheric
-pressure p (in millibars) and the wind speed w (in knots)
-measured during various tropical systems in the Atlantic
-Ocean'''
+data = pd.read_csv('Datasets/Thyroid_Diff.csv')
+data.description = '''This data set contains 13 clinicopathologic features aiming to predict recurrence of well differentiated thyroid cancer.
+The data set was collected in duration of 15 years and each patient was followed for at least 10 years.'''
 
-option = st.radio('Seleccione una opción: ', ['Visualización','Resumen','Descripción'])
+option = st.radio('Seleccione una opción: ', ['Descripción'])
 
-if option == 'Visualización':
-  plt.title('Gráfica de dispersión')
-  plt.scatter(X,Y)
-  plt.xlabel('Presión atmosférica')
-  plt.ylabel('Velocidad del viento')
-  st.pyplot(plt)
-elif option == 'Resumen':
-  st.write(data.describe())
-elif option == 'Descripción':
+if option == 'Descripción':
   st.write(data.description)
 
