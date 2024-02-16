@@ -13,7 +13,7 @@ data = pd.read_csv('Datasets/Thyroid_Diff.csv')
 data.description = '''This data set contains 13 clinicopathologic features aiming to predict recurrence of well differentiated thyroid cancer.
 The data set was collected in duration of 15 years and each patient was followed for at least 10 years.'''
 
-option = st.radio('Select an option: ', ['Description','Display','Features'])
+option = st.radio('Select an option: ', ['Description','Display','Features','EDA'])
 
 if option == 'Description':
   st.write(data.description)
@@ -33,7 +33,7 @@ elif option == 'Display':
 
 elif option == 'Features':
   st.write('Dimension of data set DTCR: %d instances and %d features' %(data.shape[0], data.shape[1]))
-  st.write('Features or variables:')
+  st.write('# Features or variables:')
   for col in data.columns:
     st.write(col)
   st.write('Type of features:')
@@ -42,3 +42,7 @@ elif option == 'Features':
   st.write('Categorical features and factors:')
   for col in data.select_dtypes(include=object):
     st.write(f"The feature %s has %d factor(s): %s" %(col, data[col].nunique(), data[col].unique()))
+
+elif option == 'EDA':
+  st.write('# Exploratory data analysis (EDA)')
+  st.write(data.describe().T)
