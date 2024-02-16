@@ -1,3 +1,6 @@
-# mi_app_1_GB
+# DTCR Analysis
 
-Mi primera app en Streamlit
+Differentiated Thyroid Cancer Recurrence (DTCR) Analysis web app 
+
+Author: Gabriel Barragán
+E-mail: gbarragan@yachaytech.edu.ec
