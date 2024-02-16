@@ -47,5 +47,5 @@ elif option == 'EDA':
   st.write('# Exploratory data analysis (EDA)')
   st.write('Summary:')
   st.write(data.describe().T)
-  if checkbox('Grouped data'):
+  if st.checkbox('Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
