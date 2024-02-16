@@ -49,3 +49,10 @@ elif option == 'EDA':
   st.write(data.describe().T)
   if st.checkbox('Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
+  st.write('# Target feature:')
+  f_abs = data["Recurred"].value_counts()
+  f_rel = data["Recurred"].value_counts(normalize=True).round(4)
+  f_rel_perc = (data["Recurred"].value_counts(normalize=True)*100).round(2).astype(str) + ' %'
+  table = pd.concat([f_abs, f_rel, f_rel_perc], axis=1)
+  table.columns = ["freq.abs", "freq.rel", "freq.rel.porc"]
+  st.write(table)
