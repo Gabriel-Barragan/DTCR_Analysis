@@ -90,3 +90,4 @@ elif option == 'EDA':
   if st.checkbox('Visualization'):
     sns.countplot(x='Recurred', data=data)
     plt.title('Recurred')
+    st.pyplot(plt)
