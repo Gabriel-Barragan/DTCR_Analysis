@@ -74,20 +74,32 @@ elif option == 'EDA':
   st.write('# Exploratory data analysis (EDA)')
   st.write('# Numeric variable:')
   st.write(data.describe().T)
-  binwidth=st.number_input('Binwidth of histogram:', value=5)
-  plt.subplots()
-  data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
-  plt.title('Histogram of DTCR feature')
-  plt.xlabel('Age')
-  st.pyplot(plt)
+  
+  if st.checkbox('Visualization'):
+    binwidth=st.number_input('Binwidth of histogram:', value=5)
+    plt.subplots()
+    data['Age'].hist(bins=range(min(data['Age']), max(data['Age'])+binwidth, binwidth), color='blue')
+    plt.title('Histogram of DTCR feature: Age')
+    plt.xlabel('Age')
+    st.pyplot(plt)
 
-  plt.subplots()
-  sns.boxplot(data['Age'])
-  plt.ylabel('Age')
-  st.pyplot(plt)
+    plt.subplots()
+    sns.boxplot(data['Age'])
+    plt.title('Boxplot of DTCR feature: Age')
+    plt.ylabel('Age')
+    st.pyplot(plt)
   
   if st.checkbox('Age - Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
+
+    binwidth=st.number_input('Binwidth of histogram:', value=5)
+    data_Age_No = data[data["Recurred"] == 'No']['Age']
+    data_Age_Yes = data[data["Recurred"] == 'Yes']['Age']
+    data_Age_No.hist(bins=range(min(data_Age_No), max(data_Age_No) + binwidth, binwidth), color='blue', label='Recurred: No', alpha=0.6)
+    data_Age_Yes.hist(bins=range(min(data_Age_Yes), max(data_Age_Yes) + binwidth, binwidth), color='red', label='Recurred: Yes', alpha=0.6)
+    plt.legend()
+    plt.title('Histogram of DTCR feature: Age grouped by target feature')
+    plt.xlabel('Age')
 
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
