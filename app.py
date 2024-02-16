@@ -36,19 +36,25 @@ elif option == 'Features':
   st.write('# Features or variables:')
   for col in data.columns:
     st.write(col)
+    
   st.write('Type of features:')
   st.write("Numeric features:", data.select_dtypes('number').columns, "\n", "-"*100)
   st.write("Categorical features:", data.select_dtypes('object').columns)
+  
   st.write('Categorical features and factors:')
   for col in data.select_dtypes(include=object):
     st.write(f"The feature %s has %d factor(s): %s" %(col, data[col].nunique(), data[col].unique()))
 
 elif option == 'EDA':
   st.write('# Exploratory data analysis (EDA)')
-  st.write('Summary:')
+  st.write('# Numeric variable:')
   st.write(data.describe().T)
   if st.checkbox('Grouped data'):
     st.write(data.groupby('Recurred')['Age'].describe())
+
+  st.write('# Categorical features:')
+  st.write(data.describe(include = object).T)
+  
   st.write('# Target feature:')
   f_abs = data["Recurred"].value_counts()
   f_rel = data["Recurred"].value_counts(normalize=True).round(4)
