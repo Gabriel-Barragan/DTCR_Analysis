@@ -162,7 +162,7 @@ elif option == 'EDA':
     st.write('Chi squared test - categorical correlation with target feature (Recurred)')
     
     st.write(f'H0 (Null hypothesis): {select_cat} and Recurred variables are independent')
-    st.write('H1 (Alternative Hypothesis): {select_cat} and Recurred variables are dependent')
+    st.write(f'H1 (Alternative Hypothesis): {select_cat} and Recurred variables are dependent')
     
     st.write(f'The P-Value of the ChiSq Test between {select_cat} and Recurred is:', ChiSqResult[1])
     if  ChiSqResult[1] <= 0.05:
