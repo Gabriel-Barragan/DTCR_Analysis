@@ -4,6 +4,8 @@ import pandas as pd
 import seaborn as sns
 import streamlit as st
 
+from scipy.stats import chi2_contingency
+
 widget_id = (id for id in range(1, 100_00))
 
 st.title('Differentiated Thyroid Cancer Recurrence Analysis')
@@ -130,6 +132,12 @@ elif option == 'EDA':
 
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
+
+  if st.checkbox('Chi squared test - categorical correlation', key=next(widget_id)):
+    categorical_var = data.select_dtypes('object').drop(columns=['Recurred']).columns
+    select_cat = st.selectbox('Select a categorical feature:',categorical_var)
+    crosstab_result = pd.crosstab(index=data[select_cat],columns=data['Recurred'])  
+    st.write(crosstab_result)
   
   st.write('# Target feature:')
   f_abs = data["Recurred"].value_counts()
