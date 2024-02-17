@@ -136,7 +136,7 @@ elif option == 'EDA':
   if st.checkbox('Chi squared test - categorical correlation with target feature (Recurred)', key=next(widget_id)):
     categorical_var = data.select_dtypes('object').drop(columns=['Recurred']).columns
     select_cat = st.selectbox('Select a categorical feature:',categorical_var)
-    crosstab_result = pd.crosstab(index=data[select_cat],columns=data['Recurred'], colnames=['a'], rownames=['d'])  
+    crosstab_result = pd.crosstab(index=data[select_cat],columns=data['Recurred'], rownames=[select_car + ' \ Recurred'])  
     st.write(crosstab_result)
     
     # Performing Chi-sq test
