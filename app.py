@@ -142,7 +142,7 @@ elif option == 'EDA':
 
   if st.checkbox('Visualization and correlation with the target feature (Recurred)', key=next(widget_id)):
     categorical_var = data.select_dtypes('object').drop(columns=['Recurred']).columns
-    select_cat = st.selectbox('Select a categorical feature:',categorical_var)
+    select_cat = st.selectbox('Select a categorical feature:',categorical_var, key=next(widget_id))
     crosstab_result = pd.crosstab(index=data[select_cat],columns=data['Recurred'], rownames=[select_cat + ' \ Recurred'])  
     
     st.write(crosstab_result)
