@@ -120,10 +120,12 @@ elif option == 'EDA':
       data_filtered = data.loc[data['Recurred']=='No']
       Q1 = data_filtered['Age'].quantile(0.25)
       Q3 = data_filtered['Age'].quantile(0.75)
-      IQR = Q3-Q1
-      upper_bound = data_filtered['Age'] >= (Q3 + 1.5*IQR)
-      # lower_bound = data_filtered['Age'] <= (Q1 - 1.5*IQR)
-      st.write(data_filtered.loc[upper_bound])
+      IQR = Q3-Q1 # Interquartile range
+      lower_bound = Q1 - 1.5*IQR
+      upper_bound = Q3 + 1.5*IQR 
+      lower_bound_index = data_filtered['Age'] <= lower_bound 
+      upper_bound_index = data_filtered['Age'] >= upper_bound
+      st.write(data_filtered.loc[lower_bound_index | upper_bound_index])
 
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
