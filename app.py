@@ -118,6 +118,10 @@ elif option == 'EDA':
     plt.ylabel('Age')
     st.pyplot(plt)
 
+    plt.subplots()
+    sns.boxplot(y='Age',x='Recurred', hue='Gender', data=data, palette=['blue','red'])
+    st.pyplot(plt)
+
     if st.checkbox('Outliers: Age - Grouped data by Recurred', key=next(widget_id)):
       option_recurred = st.radio('Select between:', ['No','Yes'])
       data_filtered = data.loc[data['Recurred']==option_recurred]
