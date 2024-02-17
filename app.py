@@ -75,6 +75,7 @@ elif option == 'Features':
     st.write(f"The feature %s has %d factor(s): %s" %(col, data[col].nunique(), data[col].unique()))
 
 elif option == 'EDA':
+  categorical_var = data.select_dtypes('object').drop(columns=['Recurred']).columns
   st.write('# Exploratory data analysis (EDA)')
 
   st.write('# Missing data')
@@ -118,10 +119,6 @@ elif option == 'EDA':
     plt.ylabel('Age')
     st.pyplot(plt)
 
-    plt.subplots()
-    sns.boxplot(y='Age',x='Recurred', hue='Gender', data=data, palette=['blue','red'])
-    st.pyplot(plt)
-
     if st.checkbox('Outliers: Age - Grouped data by Recurred', key=next(widget_id)):
       option_recurred = st.radio('Select between:', ['No','Yes'])
       data_filtered = data.loc[data['Recurred']==option_recurred]
@@ -134,6 +131,12 @@ elif option == 'EDA':
       upper_bound_index = data_filtered['Age'] >= upper_bound
       st.write(data_filtered.loc[lower_bound_index | upper_bound_index])
 
+    st.write(f'Boxplot Age and categorical feature grouped by target feature (Recurred)')
+    select_cat_age = st.selectbox('Select a categorical feature:',categorical_var)
+    plt.subplots()
+    sns.boxplot(y='Age',x='Recurred', hue='select_cat_age', data=data)
+    st.pyplot(plt)
+  
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
 
