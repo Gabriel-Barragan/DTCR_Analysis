@@ -153,7 +153,7 @@ elif option == 'EDA':
     # P-Value is the Probability of H0 being True
     # If P-Value>0.05 then only we Accept the assumption(H0)
 
-    st.write('# Chi squared test - categorical correlation with target feature (Recurred)')
+    st.write('Chi squared test - categorical correlation with target feature (Recurred)')
     st.write(f'The P-Value of the ChiSq Test between {select_cat} and Recurred is:', ChiSqResult[1])
   
   st.write('# Target feature:')
