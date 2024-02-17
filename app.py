@@ -148,13 +148,17 @@ elif option == 'EDA':
     plt.title('Barplot of feature: ' + select_cat + '\n Grouped by target feature: Recurred')
     st.pyplot(plt)
 
-    # H0 (Null hypothesis): the 2 compared variables are independent
-    # H1 (Alternative Hypothesis): the 2 variables are dependent
     # P-Value is the Probability of H0 being True
-    # If P-Value>0.05 then only we Accept the assumption(H0)
+    # If P-Value<=0.05 then only we Reject the assumption(H0)
 
     st.write('Chi squared test - categorical correlation with target feature (Recurred)')
+    
+    st.write(f'H0 (Null hypothesis): {select_cat} and Recurred variables are independent')
+    st.write('H1 (Alternative Hypothesis): {select_cat} and Recurred variables are dependent')
+    
     st.write(f'The P-Value of the ChiSq Test between {select_cat} and Recurred is:', ChiSqResult[1])
+    if  ChiSqResult[1] <= 0.05:
+      st.write(f'We reject the null hypothesis H0, then {select_cat} and Recurred variables are dependent')
   
   st.write('# Target feature:')
   f_abs = data["Recurred"].value_counts()
