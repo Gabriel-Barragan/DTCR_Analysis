@@ -116,8 +116,9 @@ elif option == 'EDA':
     plt.ylabel('Age')
     st.pyplot(plt)
 
-    if st.checkbox('Age - Outliers', key=next(widget_id)):
-      data_filtered = data.loc[data['Recurred']=='No']
+    if st.checkbox('Outliers: Age - Grouped data', key=next(widget_id)):
+      option_recurred = st.radio('Select between:', ['No','Yes'])
+      data_filtered = data.loc[data['Recurred']==option_recurred]
       Q1 = data_filtered['Age'].quantile(0.25)
       Q3 = data_filtered['Age'].quantile(0.75)
       IQR = Q3-Q1 # Interquartile range
