@@ -134,7 +134,7 @@ elif option == 'EDA':
     st.write(f'Boxplot Age and categorical feature grouped by target feature (Recurred)')
     select_cat_age = st.selectbox('Select a categorical feature:',categorical_var)
     plt.subplots()
-    sns.boxplot(y='Age',x='Recurred', hue='select_cat_age', data=data)
+    sns.boxplot(y='Age',x='Recurred', hue=select_cat_age, data=data)
     st.pyplot(plt)
   
   st.write('# Categorical features:')
