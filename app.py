@@ -144,8 +144,8 @@ elif option == 'EDA':
     ChiSqResult = chi2_contingency(crosstab_result)
 
     plt.subplots()
-    sns.countplot(x = 'Recurred', data = data, hue = var)
-    plt.title('Barplot of feature ' + var + '\n Grouped by target feature: Recurred')
+    sns.countplot(x = 'Recurred', data = data, hue = select_cat)
+    plt.title('Barplot of feature ' + select_cat + '\n Grouped by target feature: Recurred')
     st.pyplot(plt)
 
     # H0 (Null hypothesis): the 2 compared variables are independent
