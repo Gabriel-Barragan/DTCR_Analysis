@@ -95,7 +95,7 @@ elif option == 'EDA':
     plt.ylabel('Age')
     st.pyplot(plt)
   
-  if st.checkbox('Age - Grouped data'):
+  if st.checkbox('Age - Grouped data by Recurred'):
     st.write(data.groupby('Recurred')['Age'].describe())
 
     binwidth_grouped=st.number_input('Binwidth of histogram:', value=5, key=next(widget_id))
@@ -116,7 +116,7 @@ elif option == 'EDA':
     plt.ylabel('Age')
     st.pyplot(plt)
 
-    if st.checkbox('Outliers: Age - Grouped data', key=next(widget_id)):
+    if st.checkbox('Outliers: Age - Grouped data by Recurred', key=next(widget_id)):
       option_recurred = st.radio('Select between:', ['No','Yes'])
       data_filtered = data.loc[data['Recurred']==option_recurred]
       Q1 = data_filtered['Age'].quantile(0.25)
