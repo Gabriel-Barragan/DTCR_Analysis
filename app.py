@@ -131,11 +131,12 @@ elif option == 'EDA':
       upper_bound_index = data_filtered['Age'] >= upper_bound
       st.write(data_filtered.loc[lower_bound_index | upper_bound_index])
 
-    st.write(f'Boxplot Age and categorical feature grouped by target feature (Recurred)')
-    select_cat_age = st.selectbox('Select a categorical feature:',categorical_var)
-    plt.subplots()
-    sns.boxplot(y='Age',x='Recurred', hue=select_cat_age, data=data)
-    st.pyplot(plt)
+    if st.checkbox(f'Boxplot Age and categorical feature grouped by target feature (Recurred)', key=next(widget_id)):
+      select_cat_age = st.selectbox('Select a categorical feature:',categorical_var)
+      plt.subplots()
+      plt.title(f'Boxplot of Age and {select_cat_age} \n Grouped by target feature: Recurred')
+      sns.boxplot(y='Age',x='Recurred', hue=select_cat_age, data=data)
+      st.pyplot(plt)
   
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
