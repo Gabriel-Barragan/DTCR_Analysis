@@ -133,11 +133,21 @@ elif option == 'EDA':
   st.write('# Categorical features:')
   st.write(data.describe(include = object).T)
 
-  if st.checkbox('Chi squared test - categorical correlation', key=next(widget_id)):
+  if st.checkbox('Chi squared test - categorical correlation with target feature (Recurred)', key=next(widget_id)):
     categorical_var = data.select_dtypes('object').drop(columns=['Recurred']).columns
     select_cat = st.selectbox('Select a categorical feature:',categorical_var)
-    crosstab_result = pd.crosstab(index=data[select_cat],columns=data['Recurred'])  
+    crosstab_result = pd.crosstab(index=data[select_cat],columns=data['Recurred'], colnames=['Rec - No','Rec - Yes'])  
     st.write(crosstab_result)
+    
+    # Performing Chi-sq test
+    ChiSqResult = chi2_contingency(crosstab_result)
+
+    # H0 (Null hypothesis): the 2 compared variables are independent
+    # H1 (Alternative Hypothesis): the 2 variables are dependent
+    # P-Value is the Probability of H0 being True
+    # If P-Value>0.05 then only we Accept the assumption(H0)
+ 
+    st.write(f'The P-Value of the ChiSq Test between {select_cat} and Recurred is:', ChiSqResult[1])
   
   st.write('# Target feature:')
   f_abs = data["Recurred"].value_counts()
